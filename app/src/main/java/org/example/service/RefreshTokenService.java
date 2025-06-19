@@ -29,7 +29,7 @@ public class RefreshTokenService {
         return refreshTokenRepository.save(refreshToken);
     }
 
-    public RefreshToken verifyRefreshToken(RefreshToken refreshToken) {
+    public RefreshToken verifyExpiration(RefreshToken refreshToken) {
         if(refreshToken.getExpiryDate().isBefore(Instant.now())) {
             refreshTokenRepository.delete(refreshToken);
             throw new RuntimeException(refreshToken.getToken() + "Refresh token expired. Please make a new login");
@@ -40,6 +40,7 @@ public class RefreshTokenService {
     public Optional<RefreshToken> findByToken(String token){
         return refreshTokenRepository.findByToken(token);
     }
+
 
 
 }
