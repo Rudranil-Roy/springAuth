@@ -1,5 +1,8 @@
 package org.example.service;
 
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
+import jakarta.transaction.Transactional;
 import org.example.entities.RefreshToken;
 import org.example.entities.UserInfo;
 import org.example.repository.RefreshTokenRepository;
@@ -18,9 +21,16 @@ public class RefreshTokenService {
     private RefreshTokenRepository refreshTokenRepository;
     @Autowired
     private UserRepository userRepository;
+    @PersistenceContext
+    private EntityManager entityManager;
 
+    @Transactional
     public RefreshToken createRefreshToken(String username) {
         UserInfo userInfoExtracted = userRepository.findByUsername(username);
+        refreshTokenRepository.deleteByUserInfo(userInfoExtracted);
+        entityManager.flush();
+        entityManager.clear();
+
         RefreshToken refreshToken = RefreshToken.builder()
                 .userInfo(userInfoExtracted)
                 .token(UUID.randomUUID().toString())
@@ -40,7 +50,5 @@ public class RefreshTokenService {
     public Optional<RefreshToken> findByToken(String token){
         return refreshTokenRepository.findByToken(token);
     }
-
-
 
 }
