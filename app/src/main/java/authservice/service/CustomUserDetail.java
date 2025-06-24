@@ -1,7 +1,7 @@
-package org.example.service;
+package authservice.service;
 
-import org.example.entities.UserInfo;
-import org.example.entities.UserRole;
+import authservice.entities.UserInfo;
+import authservice.entities.UserRole;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -9,7 +9,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import java.util.Locale;
 
 public class CustomUserDetail extends UserInfo implements UserDetails {
 

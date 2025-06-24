@@ -1,12 +1,12 @@
-package org.example.controller;
+package authservice.controller;
 
 import lombok.AllArgsConstructor;
-import org.example.entities.RefreshToken;
-import org.example.model.UserInfoDto;
-import org.example.response.JwtResponseDto;
-import org.example.service.JwtService;
-import org.example.service.RefreshTokenService;
-import org.example.service.UserDetailServiceImpl;
+import authservice.entities.RefreshToken;
+import authservice.model.UserInfoDto;
+import authservice.response.JwtResponseDto;
+import authservice.service.JwtService;
+import authservice.service.RefreshTokenService;
+import authservice.service.UserDetailServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

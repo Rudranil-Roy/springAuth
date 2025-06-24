@@ -1,11 +1,11 @@
-package org.example.service;
+package authservice.service;
 
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import org.example.model.UserInfoDto;
-import org.example.entities.UserInfo;
-import org.example.repository.UserRepository;
+import authservice.model.UserInfoDto;
+import authservice.entities.UserInfo;
+import authservice.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

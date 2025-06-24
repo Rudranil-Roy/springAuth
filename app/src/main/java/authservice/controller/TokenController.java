@@ -1,12 +1,11 @@
-package org.example.controller;
+package authservice.controller;
 
-import org.apache.catalina.users.SparseUserDatabase;
-import org.example.entities.RefreshToken;
-import org.example.request.AuthRequestDto;
-import org.example.request.RefreshTokenRequestDto;
-import org.example.response.JwtResponseDto;
-import org.example.service.JwtService;
-import org.example.service.RefreshTokenService;
+import authservice.entities.RefreshToken;
+import authservice.request.AuthRequestDto;
+import authservice.request.RefreshTokenRequestDto;
+import authservice.response.JwtResponseDto;
+import authservice.service.JwtService;
+import authservice.service.RefreshTokenService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
