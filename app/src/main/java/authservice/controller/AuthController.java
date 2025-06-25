@@ -34,7 +34,8 @@ public class AuthController {
             String jwtToken= jwtService.generateToken(userInfoDto.getUsername());
             return new ResponseEntity<>(JwtResponseDto.builder().accessToken(jwtToken).token(refreshToken.getToken()).build(), HttpStatus.OK);
         } catch (Exception ex) {
-            return new ResponseEntity<>("Exception in UserService", HttpStatus.INTERNAL_SERVER_ERROR);
+            ex.printStackTrace();
+            return new ResponseEntity<>(ex, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 }
